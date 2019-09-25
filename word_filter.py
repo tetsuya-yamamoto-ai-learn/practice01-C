@@ -27,3 +27,7 @@ class WordFilter():
             string = string.replace(NG_word, censored_word)
 
         return string
+
+    def change_NG_word(self, NG_words):
+        self.NG_words = NG_words
+        return
