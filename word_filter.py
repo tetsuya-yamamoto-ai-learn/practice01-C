@@ -1,14 +1,29 @@
 # ワードフィルタークラス
 
 class WordFilter():
-    def __init__(self, NG_word):
-        self.NG_word = NG_word
+    def __init__(self, NG_words):
+        self.NG_words = NG_words
 
     def detect(self, string):
-        return self.NG_word in string
+        boolean = False
+
+        for NG_word in self.NG_words:
+            boolean = NG_word in string
+            if boolean:
+                return boolean
+
+        return boolean
+
 
     def censor(self, string):
-        return string.replace(self.NG_word, '<censored>')
+        for NG_word in self.NG_words:
+            string = string.replace(NG_word, "<censored>")
+
+        return string
+
 
     def censor2(self, string, censored_word):
-        return string.replace(self.NG_word, censored_word)
+        for NG_word in self.NG_words:
+            string = string.replace(NG_word, censored_word)
+
+        return string
