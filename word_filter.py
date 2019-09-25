@@ -9,3 +9,6 @@ class WordFilter():
 
     def censor(self, string):
         return string.replace(self.NG_word, '<censored>')
+
+    def censor2(self, string, censored_word):
+        return string.replace(self.NG_word, censored_word)
